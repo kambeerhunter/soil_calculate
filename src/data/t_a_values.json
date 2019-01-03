@@ -1,0 +1,67 @@
+[
+  {
+    "freedomDegrees": 3,
+    "confidence085": 1.25,
+    "confidence095": 2.35
+  },
+  {
+    "freedomDegrees": 4,
+    "confidence085": 1.19,
+    "confidence095": 2.13
+  },
+  {
+    "freedomDegrees": 5,
+    "confidence085": 1.16,
+    "confidence095": 2.01
+  },
+  {
+    "freedomDegrees": 6,
+    "confidence085": 1.13,
+    "confidence095": 1.94
+  },
+  {
+    "freedomDegrees": 7,
+    "confidence085": 1.12,
+    "confidence095": 1.90
+  },
+  {
+    "freedomDegrees": 8,
+    "confidence085": 1.11,
+    "confidence095": 1.86
+  },
+  {
+    "freedomDegrees": 9,
+    "confidence085": 1.10,
+    "confidence095": 1.83
+  },
+  {
+    "freedomDegrees": 10,
+    "confidence085": 1.10,
+    "confidence095": 1.81
+  },
+  {
+    "freedomDegrees": 11,
+    "confidence085": 1.09,
+    "confidence095": 1.80
+  },
+  {
+    "freedomDegrees": 12,
+    "confidence085": 1.08,
+    "confidence095": 1.78
+  },
+  {
+    "freedomDegrees": 13,
+    "confidence085": 1.08,
+    "confidence095": 1.77
+  },
+  {
+    "freedomDegrees": 14,
+    "confidence085": 1.08,
+    "confidence095": 1.76
+  },
+  {
+    "freedomDegrees": 14,
+    "confidence085": 1.07,
+    "confidence095": 1.75
+  }
+]
