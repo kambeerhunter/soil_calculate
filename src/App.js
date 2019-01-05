@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router';
 import { history } from './history';
-import { Mainpage, Statistics, PageNotFound } from './modules';
+import { Mainpage, Statistics, PageNotFound, Accelerogram } from './modules';
 
 export default class App extends React.Component {
   constructor() {
@@ -22,6 +22,11 @@ export default class App extends React.Component {
             exact
             path="/statistics"
             component={Statistics}
+          />
+          <Route
+            exact
+            path="/accelerogram"
+            component={Accelerogram}
           />
           <Route
             exact
