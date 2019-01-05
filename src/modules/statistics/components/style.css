@@ -11,9 +11,6 @@ form input[type="number"] {
 form input[type="number"]:hover {
   box-shadow: inset 0px 0px 5px #00f;
 }
-form .form-group {
-  padding: 7px;
-}
 form button {
   background: #0063b0;
   color: #fff;
@@ -31,7 +28,13 @@ form button {
 form button:hover {
   background: #209cee;
 }
-
+form .form-group {
+  padding: 7px;
+}
+form .form-group label {
+  display: block;
+  padding:  2px 0 7px 0;
+}
 .result-values {
   padding: 20px 0;
 }

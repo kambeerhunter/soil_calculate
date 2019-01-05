@@ -1,5 +1,7 @@
 import React from 'react';
 import * as Ui from '../../Ui';
+import { LineChart } from './components/LineChart';
+import './style.css';
 
 class Accelerogram extends React.Component {
   state = {
@@ -7,6 +9,7 @@ class Accelerogram extends React.Component {
     seriesAmount: 0,
     data: [],
     errorMessage: null,
+    selectedColor: 'rgba(255, 0, 0, 0.7)',
   }
 
   changeSeriesNumber = (e) => {
@@ -16,6 +19,10 @@ class Accelerogram extends React.Component {
     } else {
       this.setState({ seriesNumber: seriesAmount });
     }
+  }
+
+  selectChange = (e) => {
+    this.setState({ selectedColor: e.currentTarget.value });
   }
 
   readAccelFile = (e) => {
@@ -28,10 +35,16 @@ class Accelerogram extends React.Component {
         const data = [];
         rowData.split('\n     256').forEach((string, index) => {
           if (index !== 0) {
-            data.push(string.replace(/\s\s+/g, ' ').trim().split(' ', 257));
+            data.push(
+              string.replace(/\s\s+/g, ' ')
+                .trim()
+                .split(' ', 257),
+            );
           }
         });
-        this.setState({ seriesAmount: data.length, data, errorMessage: null });
+        data.length ?
+          this.setState({ seriesAmount: data.length, data, errorMessage: null }):
+          this.setState({ errorMessage: 'error reading file' });
       };
       reader.onerror = () => {
         this.setState({ errorMessage: 'error reading file' });
@@ -40,37 +53,65 @@ class Accelerogram extends React.Component {
   }
 
   render() {
-    const { seriesNumber, seriesAmount, errorMessage } = this.state;
+    const {
+      seriesNumber,
+      seriesAmount,
+      errorMessage,
+      selectedColor,
+      data,
+    } = this.state;
 
     return (
       <Ui.Body
         pageTitle="Accelerogram"
       >
-        <form>
+        <div>
           <div className="form-group">
-            <input
-              type="text"
-              name="seriesNumber"
-              value={seriesNumber}
-              onChange={this.changeSeriesNumber}
-            />
-          </div>
-          <div className="form-group">
+            <h4>
+              Select data file
+            </h4>
             <input
               type="file"
-              name="accel"
               onChange={this.readAccelFile}
             />
           </div>
-          <button
-            type="button"
-          >
-            Построить график
-          </button>
-        </form>
+          <div className="form-group">
+            <h4>
+              Select implementation number
+            </h4>
+            <select
+              value={seriesNumber}
+              onChange={this.changeSeriesNumber}
+            >
+              {
+                [...Array(seriesAmount).keys()].map(item => (
+                  <option
+                    key={item}
+                    value={item}
+                  >
+                    {item + 1}
+                  </option>
+                ))
+              }
+            </select>
+          </div>
+          <div className="form-group">
+            <h4>
+              Select color
+            </h4>
+            <select
+              value={selectedColor}
+              onChange={this.selectChange}
+            >
+              <option value="rgba(255, 0, 0, 0.7)">Red</option>
+              <option value="rgba(0, 255, 0, 0.7)">Green</option>
+              <option value="rgba(0, 0, 255, 0.7)">Blue</option>
+            </select>
+          </div>
+        </div>
 
         {errorMessage && (
-          <div className="errorMessage">
+          <div className="error-message">
             {errorMessage}
           </div>
         )}
@@ -81,6 +122,16 @@ class Accelerogram extends React.Component {
             {seriesAmount}
           </div>
         )}
+
+        {
+          (seriesAmount > 0) &&
+          data[seriesNumber] && (
+            <LineChart
+              data={data[seriesNumber]}
+              lineColor={selectedColor}
+            />
+          )
+        }
       </Ui.Body>
     );
   }
