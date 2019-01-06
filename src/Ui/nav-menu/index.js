@@ -17,5 +17,12 @@ export const NavMenu = () => (
     >
       Statistics
     </Link>
+
+    <Link
+      to="/accelerogram"
+      className="nav-link"
+    >
+      Accelerogram
+    </Link>
   </nav>
 );
