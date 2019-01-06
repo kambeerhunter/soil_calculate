@@ -27,11 +27,11 @@ const LineChart = ({ data, lineColor }) => {
       data={lineData}
     />
   );
-}
+};
 
 LineChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.string).isRequired,
   lineColor: PropTypes.string.isRequired,
-}
+};
 
 export { LineChart };

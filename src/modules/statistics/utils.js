@@ -1,8 +1,8 @@
 import * as data from '../../data/t_a_values.json';
 
-const getMinValue = (values) => Math.min(...values);
+const getMinValue = values => Math.min(...values);
 
-const getMaxValue = (values) => Math.max(...values);
+const getMaxValue = values => Math.max(...values);
 
 const getAverageValue = (values) => {
   if (values.length) {

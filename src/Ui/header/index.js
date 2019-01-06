@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavMenu } from '../nav-menu';
-import './style.css';
 
 export const Header = ({ pageTitle }) => (
-  <header>
+  <header className="text-center pt-3">
     <h2>{ pageTitle }</h2>
     <NavMenu />
     <hr />
@@ -13,4 +12,4 @@ export const Header = ({ pageTitle }) => (
 
 Header.propTypes = {
   pageTitle: PropTypes.string.isRequired,
-}
+};

@@ -4,7 +4,6 @@ import arrayMutators from 'final-form-arrays';
 import { FieldArray } from 'react-final-form-arrays';
 
 import { getFinalCharacteristic } from '../utils';
-import './style.css';
 
 const initialValues = {
   soilSamples: [
@@ -48,7 +47,7 @@ class StatisticsForm extends React.Component {
           values,
         }) => (
           <form onSubmit={handleSubmit}>
-            <div className="buttons">
+            <div className="buttons pb-3 pt-3">
               <button
                 type="button"
                 onClick={() => {
@@ -57,6 +56,7 @@ class StatisticsForm extends React.Component {
                   }
                   return false;
                 }}
+                className="btn btn-success mr-3"
               >
                 Add sample
               </button>
@@ -65,6 +65,7 @@ class StatisticsForm extends React.Component {
                 onClick={() => {
                   if (values.soilSamples.length > minSamples) { pop('soilSamples')};
                 }}
+                className="btn btn-danger"
               >
                 Remove sample
               </button>
@@ -74,29 +75,35 @@ class StatisticsForm extends React.Component {
                 fields.map((name, index) => (
                   <div
                     key={name}
-                    className="form-group"
+                    className="form-group row"
                   >
                     <div>{`Sample ${index + 1}`}</div>
-                    <Field
-                      name={`${name}.value`}
-                      component="input"
-                      type="number"
-                      step="0.01"
-                    />
-                    <button
-                      onClick={() => {
-                        if (fields.length > minSamples) return fields.remove(index);
-                        return false;
-                      }}
-                      type="button"
-                    >
-                      <span
-                        role="img"
-                        aria-label="delete-sample"
+                    <div class="col">
+                      <Field
+                        name={`${name}.value`}
+                        component="input"
+                        type="number"
+                        step="0.01"
+                        className="form-control"
+                      />
+                    </div>
+                    <div class="col">
+                      <button
+                        onClick={() => {
+                          if (fields.length > minSamples) return fields.remove(index);
+                          return false;
+                        }}
+                        type="button"
+                        className="btn btn-danger"
                       >
-                        ❌
-                      </span>
-                    </button>
+                        <span
+                          role="img"
+                          aria-label="delete-sample"
+                        >
+                          ❌
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 ))}
             </FieldArray>
@@ -104,6 +111,7 @@ class StatisticsForm extends React.Component {
             <div className="buttons">
               <button
                 type="submit"
+                className="btn btn-primary mr-3"
               >
                 Calculate
               </button>
@@ -111,6 +119,7 @@ class StatisticsForm extends React.Component {
                 type="button"
                 onClick={reset}
                 disabled={submitting || pristine}
+                className="btn btn-secondary"
               >
                 Reset
               </button>
