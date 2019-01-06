@@ -12,3 +12,5 @@ The minimum number of samples is limited to 6, the maximum - 15.
 
 2.
 Accelerogram section allows you to create graphs using a special data file ('/test/ACCEL.DAT' for example)
+
+<a href="http://geosferaplus.ru">Demo</a>
