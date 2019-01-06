@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Ui from '../../Ui';
 import { LineChart } from './components/LineChart';
-import './style.css';
 
 class Accelerogram extends React.Component {
   state = {
@@ -67,21 +66,26 @@ class Accelerogram extends React.Component {
       >
         <div>
           <div className="form-group">
-            <h4>
-              Select data file
-            </h4>
-            <input
-              type="file"
-              onChange={this.readAccelFile}
-            />
+            <div class="custom-file">
+              <input
+                type="file"
+                onChange={this.readAccelFile}
+                className="custom-file-input"
+                id="customFile"
+              />
+              <label className="custom-file-label" htmlFor="customFile">
+                Choose data file
+              </label>
+            </div>
           </div>
           <div className="form-group">
-            <h4>
+            <h5>
               Select implementation number
-            </h4>
+            </h5>
             <select
               value={seriesNumber}
               onChange={this.changeSeriesNumber}
+              className="form-control"
             >
               {
                 [...Array(seriesAmount).keys()].map(item => (
@@ -96,12 +100,13 @@ class Accelerogram extends React.Component {
             </select>
           </div>
           <div className="form-group">
-            <h4>
+            <h5>
               Select color
-            </h4>
+            </h5>
             <select
               value={selectedColor}
               onChange={this.selectChange}
+              className="form-control"
             >
               <option value="rgba(255, 0, 0, 0.7)">Red</option>
               <option value="rgba(0, 255, 0, 0.7)">Green</option>
@@ -111,7 +116,7 @@ class Accelerogram extends React.Component {
         </div>
 
         {errorMessage && (
-          <div className="error-message">
+          <div className="text-danger">
             {errorMessage}
           </div>
         )}

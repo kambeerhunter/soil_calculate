@@ -11,10 +11,12 @@ export const Mainpage = () => (
       depending on the specified values, according to GOST 20522-2012
       (Soils. Methods of statistical treatment of test results)
     </div>
-    <br/>
+    <br />
     <h4>Accelerogram section</h4>
     <div>
-      Accelerogram section allows you to create graphs using a special data file (the example is stored in the '/test' folder)
+      Accelerogram section allows you to create graphs using a special data file (
+      <a href="/test/ACCEL.DAT" download>example</a>
+      )
     </div>
   </Ui.Body>
 );
