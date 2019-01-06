@@ -15,7 +15,7 @@ export const Mainpage = () => (
     <h4>Accelerogram section</h4>
     <div>
       Accelerogram section allows you to create graphs using a special data file (
-      <a href="/test/ACCEL.DAT" download>example</a>
+      <a href="/static/ACCEL.DAT" download>example</a>
       )
     </div>
   </Ui.Body>
